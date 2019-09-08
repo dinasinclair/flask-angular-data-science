@@ -35,35 +35,49 @@ def train():
 def predict():
     # get iris object from request
     X = request.get_json()
-    print (X)
-    iris_X = [[
-        float(X['sepalLength']), 
-        float(X['sepalWidth']), 
-        float(X['petalLength']), 
-        float(X['petalWidth'])
-        ]]
+    print(X, flush=True)
+    # iris_X = [[
+    #     float(X['sepalLength']), 
+    #     float(X['sepalWidth']), 
+    #     float(X['petalLength']), 
+    #     float(X['petalWidth'])
+    #     ]]
+    # clf = joblib.load('model.pkl')
+    # probabilities = clf.predict_proba(iris_X)
 
-    # loan_X = [[
-    #     float(X['loan_amnt']),
-    #     float(X['funded_amnt']),
-    #     float(X['funded_amnt_inv']),
-    #     float(X['installment']),
-    #     float(X['annual_inc']),
-    # ]]
-# u'dti', u'delinq_2yrs',
-#        u'inq_last_6mths', u'open_acc', u'pub_rec', u'revol_bal', u'total_acc',
-#        u'out_prncp', u'out_prncp_inv', u'total_pymnt', u'total_pymnt_inv',
-#        u'total_rec_prncp', u'total_rec_int', u'total_rec_late_fee',
-#        u'last_pymnt_amnt', u'collections_12_mths_ex_med', u'policy_code',
-#        u'acc_now_delinq', u'chargeoff_within_12_mths', u'delinq_amnt',
-#        u'pub_rec_bankruptcies', u'tax_liens'],
-#       dtype='object'
-    # y_index = int(X['loanIndex'])
-    # y = df.loc[df['index'] == X_index].values
+    loan_X = [[
+        float(X['loan_amnt']),
+        float(X['funded_amnt']),
+        float(X['funded_amnt_inv']),
+        float(X['installment']),
+        float(X['annual_inc']),
+        float(X['dti']),
+        float(X['delinq_2yrs']),
+        float(X['inq_last_6mths']),
+        float(X['open_acc']),
+        float(X['pub_rec']),
+        float(X['revol_bal']),
+        float(X['total_acc']),
+        float(X['out_prncp']),
+        float(X['out_prncp_inv']),
+        float(X['total_pymnt']),
+        float(X['total_pymnt_inv']),
+        float(X['total_rec_prncp']),
+        float(X['total_rec_late_fee']),
+        float(X['last_pymnt_amnt']),
+        float(X['collections_12_mths_ex_med']),
+        float(X['acc_now_delinq']),
+        float(X['chargeoff_within_12_mths']),
+        float(X['total_pymnt']),
+        float(X['delinq_amnt']),
+        float(X['pub_rec_bankruptcies']),
+        float(X['tax_liens']),
+    ]]
 
     # read model
-    clf = joblib.load('model.pkl')
-    probabilities = clf.predict_proba(iris_X)
+    clf = joblib.load('loan_pipeline.pkl')
+    probabilities = clf.predict_proba(loan_X)
+    
 
     # return jasonify([{'name': 'Paid-off', 'value': 17}])
     return jsonify([{'name': 'Iris-asdfasdfa', 'value': round(probabilities[0, 0] * 100, 2)},
