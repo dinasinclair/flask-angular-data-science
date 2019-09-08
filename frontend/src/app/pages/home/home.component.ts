@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { IrisService } from "./iris.service";
+import { LoanService } from "./loan.service";
 import {
     Iris,
     Loan,
@@ -25,7 +26,10 @@ export class HomeComponent implements OnInit {
         domain: ["#1a242c", "#e81746", "#e67303", "#f0f0f0"],
     };
 
-    constructor(private irisService: IrisService) {}
+    constructor(
+        private irisService: IrisService,
+        private loanService: LoanService,
+    ) {}
 
     ngOnInit() {}
 
@@ -38,6 +42,14 @@ export class HomeComponent implements OnInit {
     public predictIris() {
         this.irisService
             .predictIris(this.iris)
+            .subscribe(probabilityPredictions => {
+                this.probabilityPredictions = probabilityPredictions;
+            });
+    }
+
+    public predictLoan() {
+        this.loanService
+            .predictLoan(this.loan)
             .subscribe(probabilityPredictions => {
                 this.probabilityPredictions = probabilityPredictions;
             });
