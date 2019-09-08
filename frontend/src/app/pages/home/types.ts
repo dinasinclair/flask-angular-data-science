@@ -6,20 +6,34 @@ export class Iris {
 }
 
 export class Loan {
-    loanAmount: number = 12;
-    fundedAmount: number = 1235;
-    fundedAmountInvestors: number = 34;
+    loan_amnt: number = 12;
+    funded_amnt: number = 1235;
+    funded_amnt_inv: number = 34;
     installment: number = 123;
+    annual_inc: number = 1;
+    dti: number = 12;
+    delinq_2yrs: number = 0;
+    inq_last_6mths: number = 0;
+    open_acc: number = 0;
+    pub_rec: number = 0;
+    revol_bal: number = 0;
+    total_acc: number = 0;
+    out_prncp: number = 0;
+    out_prncp_inv: number = 0;
+    total_pymnt: number = 0;
+    total_pymnt_inv: number = 0;
+    total_rec_prncp: number = 0;
+    total_rec_int: number = 0;
+    total_rec_late_fee: number = 0;
+    last_pymnt_amnt: number = 0;
+    collections_12_mths_ex_med: number = 0;
+    policy_code: number = 0;
+    acc_now_delinq: number = 0;
+    chargeoff_within_12_mths: number = 0;
+    delinq_amnt: number = 0;
+    pub_rec_bankruptcies: number = 0;
+    tax_liens: number = 0;
 }
-
-// 'loan_amnt', u'funded_amnt', u'funded_amnt_inv',
-//        u'installment', u'annual_inc', u'dti', u'delinq_2yrs',
-//        u'inq_last_6mths', u'open_acc', u'pub_rec', u'revol_bal', u'total_acc',
-//        u'out_prncp', u'out_prncp_inv', u'total_pymnt', u'total_pymnt_inv',
-//        u'total_rec_prncp', u'total_rec_int', u'total_rec_late_fee',
-//        u'last_pymnt_amnt', u'collections_12_mths_ex_med', u'policy_code',
-//        u'acc_now_delinq', u'chargeoff_within_12_mths', u'delinq_amnt',
-//        u'pub_rec_bankruptcies', u'tax_liens'
 
 export class ProbabilityPrediction {
     name: string;

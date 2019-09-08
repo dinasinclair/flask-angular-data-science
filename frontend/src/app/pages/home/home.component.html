@@ -83,7 +83,7 @@
                         mdInput
                         name="Loan Amount"
                         placeholder="Loan Amount"
-                        [(ngModel)]="loan.loanAmount"
+                        [(ngModel)]="loan.loan_amnt"
                     />
                 </md-input-container>
                 <md-input-container>
@@ -91,17 +91,15 @@
                         mdInput
                         name="Funded Amount"
                         placeholder="Funded Amount"
-                        [(ngModel)]="loan.fundedAmount"
+                        [(ngModel)]="loan.funded_amnt"
                     />
                 </md-input-container>
-            </div>
-            <div fxLayout="row">
                 <md-input-container>
                     <input
                         mdInput
                         name="Funded Amount Investors"
                         placeholder="Funded Amount Investors"
-                        [(ngModel)]="loan.fundedAmountInvestors"
+                        [(ngModel)]="loan.funded_amnt_inv"
                     />
                 </md-input-container>
                 <md-input-container>
@@ -113,21 +111,200 @@
                     />
                 </md-input-container>
             </div>
+            <div fxLayout="row">
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="annual_inc"
+                        placeholder="annual_inc"
+                        [(ngModel)]="loan.annual_inc"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="dti"
+                        placeholder="dti"
+                        [(ngModel)]="loan.dti"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="delinq_2yrs"
+                        placeholder="delinq_2yrs"
+                        [(ngModel)]="loan.delinq_2yrs"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="inq_last_6mths"
+                        placeholder="inq_last_6mths"
+                        [(ngModel)]="loan.inq_last_6mths"
+                    />
+                </md-input-container>
+            </div>
+            <div fxLayout="row">
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="open_acc"
+                        placeholder="open_acc"
+                        [(ngModel)]="loan.open_acc"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="pub_rec"
+                        placeholder="pub_rec"
+                        [(ngModel)]="loan.pub_rec"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="revol_bal"
+                        placeholder="revol_bal"
+                        [(ngModel)]="loan.revol_bal"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="total_acc"
+                        placeholder="total_acc"
+                        [(ngModel)]="loan.total_acc"
+                    />
+                </md-input-container>
+            </div>
+            <div fxLayout="row">
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="out_prncp"
+                        placeholder="out_prncp"
+                        [(ngModel)]="loan.out_prncp"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="out_prncp_inv"
+                        placeholder="out_prncp_inv"
+                        [(ngModel)]="loan.out_prncp_inv"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="total_pymnt"
+                        placeholder="total_pymnt"
+                        [(ngModel)]="loan.total_pymnt"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="total_pymnt_inv"
+                        placeholder="total_pymnt_inv"
+                        [(ngModel)]="loan.total_pymnt_inv"
+                    />
+                </md-input-container>
+            </div>
+            <div fxLayout="row">
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="total_rec_prncp"
+                        placeholder="total_rec_prncp"
+                        [(ngModel)]="loan.total_rec_prncp"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="total_rec_int"
+                        placeholder="total_rec_int"
+                        [(ngModel)]="loan.total_rec_int"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="total_rec_late_fee"
+                        placeholder="total_rec_late_fee"
+                        [(ngModel)]="loan.total_rec_late_fee"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="last_pymnt_amnt"
+                        placeholder="last_pymnt_amnt"
+                        [(ngModel)]="loan.last_pymnt_amnt"
+                    />
+                </md-input-container>
+            </div>
+            <div fxLayout="row">
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="collections_12_mths_ex_med"
+                        placeholder="collections_12_mths_ex_med"
+                        [(ngModel)]="loan.collections_12_mths_ex_med"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="policy_code"
+                        placeholder="policy_code"
+                        [(ngModel)]="loan.policy_code"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="acc_now_delinq"
+                        placeholder="acc_now_delinq"
+                        [(ngModel)]="loan.acc_now_delinq"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="chargeoff_within_12_mths"
+                        placeholder="chargeoff_within_12_mths"
+                        [(ngModel)]="loan.chargeoff_within_12_mths"
+                    />
+                </md-input-container>
+            </div>
+            <div fxLayout="row">
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="delinq_amnt"
+                        placeholder="delinq_amnt"
+                        [(ngModel)]="loan.delinq_amnt"
+                    />
+                </md-input-container>
+                <md-input-container>
+                    <input
+                        mdInput
+                        name="tax_liens"
+                        placeholder="tax_liens"
+                        [(ngModel)]="loan.tax_liens"
+                    />
+                </md-input-container>
+            </div>
             <div>
                 <button md-raised-button (click)="predictIris()">
                     Predict iris
                 </button>
             </div>
         </md-card>
-
-        <!-- 'loan_amnt', u'funded_amnt', u'funded_amnt_inv',
-       u'installment', u'annual_inc', u'dti', u'delinq_2yrs',
-       u'inq_last_6mths', u'open_acc', u'pub_rec', u'revol_bal', u'total_acc',
-       u'out_prncp', u'out_prncp_inv', u'total_pymnt', u'total_pymnt_inv',
-       u'total_rec_prncp', u'total_rec_int', u'total_rec_late_fee',
-       u'last_pymnt_amnt', u'collections_12_mths_ex_med', u'policy_code',
-       u'acc_now_delinq', u'chargeoff_within_12_mths', u'delinq_amnt',
-       u'pub_rec_bankruptcies', u'tax_liens' -->
 
         <div
             *ngIf="probabilityPredictions"
