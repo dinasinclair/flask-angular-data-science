@@ -10,6 +10,9 @@ PORT = 8081
 # initialize flask application
 app = Flask(__name__)
 
+# load data
+# df = pd.read_csv("zume_data.csv")
+
 
 @app.route('/api/train', methods=['POST'])
 def train():
@@ -22,8 +25,8 @@ def train():
 
     # fit model
     clf = svm.SVC(C=float(parameters['C']),
-                  probability=True,
-                  random_state=1)
+                 probability=True,
+                 random_state=1)
     clf.fit(X, y)
 
     # persist model
@@ -38,13 +41,17 @@ def predict():
     X = request.get_json()
     X = [[float(X['sepalLength']), float(X['sepalWidth']), float(X['petalLength']), float(X['petalWidth'])]]
 
+    # y_index = int(X['loanIndex'])
+    # y = df.loc[df['index'] == X_index].values
+
     # read model
     clf = joblib.load('model.pkl')
     probabilities = clf.predict_proba(X)
 
+    # return jasonify([{'name': 'Paid-off', 'value': 17}])
     return jsonify([{'name': 'Iris-Setosa', 'value': round(probabilities[0, 0] * 100, 2)},
-                    {'name': 'Iris-Versicolour', 'value': round(probabilities[0, 1] * 100, 2)},
-                    {'name': 'Iris-Virginica', 'value': round(probabilities[0, 2] * 100, 2)}])
+                   {'name': 'Iris-Versicolour', 'value': round(probabilities[0, 1] * 100, 2)},
+                   {'name': 'Iris-Virginica', 'value': round(probabilities[0, 2] * 100, 2)}])
 
 
 if __name__ == '__main__':
