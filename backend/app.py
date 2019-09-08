@@ -10,10 +10,6 @@ PORT = 8081
 # initialize flask application
 app = Flask(__name__)
 
-# load data
-# df = pd.read_csv("zume_data.csv")
-
-
 @app.route('/api/train', methods=['POST'])
 def train():
     # get parameters from request
@@ -49,8 +45,7 @@ def predict():
     probabilities = clf.predict_proba(X)
 
     # return jasonify([{'name': 'Paid-off', 'value': 17}])
-    return jsonify([{'name': 'Iris-Setosa', 'value': round(probabilities[0, 0] * 100, 2)},
-                   {'name': 'Iris-Versicolour', 'value': round(probabilities[0, 1] * 100, 2)},
+    return jsonify([{'name': 'Iris-asdfasdfa', 'value': round(probabilities[0, 0] * 100, 2)},
                    {'name': 'Iris-Virginica', 'value': round(probabilities[0, 2] * 100, 2)}])
 
 

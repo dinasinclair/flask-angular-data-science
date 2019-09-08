@@ -19,3 +19,4 @@ RUN pip3 install -r requirements.txt
 
 # This is the runtime command for the container
 CMD python3 app.py
+
