@@ -33,17 +33,9 @@ app = Flask(__name__)
 
 @app.route('/api/predict', methods=['POST'])
 def predict():
-    # get iris object from request
+    # get object from request
     X = request.get_json()
     print(X, flush=True)
-    # iris_X = [[
-    #     float(X['sepalLength']), 
-    #     float(X['sepalWidth']), 
-    #     float(X['petalLength']), 
-    #     float(X['petalWidth'])
-    #     ]]
-    # clf = joblib.load('model.pkl')
-    # probabilities = clf.predict_proba(iris_X)
 
     loan_X = [[
         float(X['loan_amnt']),
@@ -78,13 +70,14 @@ def predict():
     # read model
     clf = joblib.load('numeric_loan_forest.pkl')
     prediction = clf.predict(loan_X)
+    percent = prediction[0]*100
     print(prediction, flush=True)
     
 
     # return jasonify([{'name': 'Paid-off', 'value': 17}])
     # return jsonify([{'name': 'prediction', 'value': prediction[0]}
     #                ])
-    return str(prediction)
+    return str(percent)
 
 if __name__ == '__main__':
     # run web server
