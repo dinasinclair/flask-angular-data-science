@@ -66,6 +66,7 @@ def predict():
         float(X['total_rec_late_fee']),
         float(X['last_pymnt_amnt']),
         float(X['collections_12_mths_ex_med']),
+        float(X['total_rec_prncp']),
         float(X['acc_now_delinq']),
         float(X['chargeoff_within_12_mths']),
         float(X['total_pymnt']),
@@ -75,13 +76,14 @@ def predict():
     ]]
 
     # read model
-    clf = joblib.load('loan_pipeline.pkl')
-    probabilities = clf.predict_proba(loan_X)
+    clf = joblib.load('numeric_loan_forest.pkl')
+    prediction = clf.predict(loan_X)
+    print(prediction, flush=True)
     
 
     # return jasonify([{'name': 'Paid-off', 'value': 17}])
-    return jsonify([{'name': 'Iris-asdfasdfa', 'value': round(probabilities[0, 0] * 100, 2)},
-                   {'name': 'Iris-Virginica', 'value': round(probabilities[0, 2] * 100, 2)}])
+    return jsonify([{'name': 'prediction', 'value': prediction[0]},
+                   {'name': 'uncertainty', 'value': prediction[0]}])
 
 
 if __name__ == '__main__':
