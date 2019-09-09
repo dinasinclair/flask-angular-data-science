@@ -82,9 +82,9 @@ def predict():
     
 
     # return jasonify([{'name': 'Paid-off', 'value': 17}])
-    return jsonify([{'name': 'prediction', 'value': prediction[0]},
-                   {'name': 'uncertainty', 'value': prediction[0]}])
-
+    # return jsonify([{'name': 'prediction', 'value': prediction[0]}
+    #                ])
+    return str(prediction)
 
 if __name__ == '__main__':
     # run web server

@@ -37,46 +37,10 @@
         fxLayoutAlign="center center"
         fxLayout="column"
     >
-        <h3>Predict Iris classes</h3>
+        <h3>Predict Loan Class</h3>
 
         <md-card fxLayoutAlign="center center" fxLayout="column">
-            <h4>Define Iris</h4>
-            <div fxLayout="row">
-                <md-input-container>
-                    <input
-                        mdInput
-                        name="Sepal width"
-                        placeholder="Sepal width"
-                        [(ngModel)]="iris.sepalWidth"
-                    />
-                </md-input-container>
-                <md-input-container>
-                    <input
-                        mdInput
-                        name="Sepal length"
-                        placeholder="Sepal length"
-                        [(ngModel)]="iris.sepalLength"
-                    />
-                </md-input-container>
-            </div>
-            <div fxLayout="row">
-                <md-input-container>
-                    <input
-                        mdInput
-                        name="Petal width"
-                        placeholder="Petal width"
-                        [(ngModel)]="iris.petalWidth"
-                    />
-                </md-input-container>
-                <md-input-container>
-                    <input
-                        mdInput
-                        name="Petal length"
-                        placeholder="Petal length"
-                        [(ngModel)]="iris.petalLength"
-                    />
-                </md-input-container>
-            </div>
+            <h4>Define Parameters</h4>
             <div fxLayout="row">
                 <md-input-container>
                     <input
@@ -312,14 +276,17 @@
             fxLayout="column"
             class="home__chart-container"
         >
-            <h4>Prediction Result</h4>
-            <ngx-charts-pie-chart
-                [results]="probabilityPredictions"
+            <h4>Chance of Being Paid</h4>
+            <ngx-charts-linear-gauge
+                [view]="[400, 400]"
                 [scheme]="colorScheme"
-                [labels]="true"
-                [legend]="true"
+                [value]="probabilityPredictions"
+                [min]="0"
+                [max]="1"
+                [units]="''"
+                (select)="onSelect($event)"
             >
-            </ngx-charts-pie-chart>
+            </ngx-charts-linear-gauge>
         </div>
     </div>
 </div>
