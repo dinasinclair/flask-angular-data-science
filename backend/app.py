@@ -10,25 +10,25 @@ PORT = 8081
 # initialize flask application
 app = Flask(__name__)
 
-@app.route('/api/train', methods=['POST'])
-def train():
-    # get parameters from request
-    parameters = request.get_json()
+# @app.route('/api/train', methods=['POST'])
+# def train():
+#     # get parameters from request
+#     parameters = request.get_json()
 
-    # read iris data set
-    iris = datasets.load_iris()
-    X, y = iris.data, iris.target
+#     # read iris data set
+#     iris = datasets.load_iris()
+#     X, y = iris.data, iris.target
 
-    # fit model
-    clf = svm.SVC(C=float(parameters['C']),
-                 probability=True,
-                 random_state=1)
-    clf.fit(X, y)
+#     # fit model
+#     clf = svm.SVC(C=float(parameters['C']),
+#                  probability=True,
+#                  random_state=1)
+#     clf.fit(X, y)
 
-    # persist model
-    joblib.dump(clf, 'model.pkl')
+#     # persist model
+#     joblib.dump(clf, 'model.pkl')
 
-    return jsonify({'accuracy': round(clf.score(X, y) * 100, 2)})
+#     return jsonify({'accuracy': round(clf.score(X, y) * 100, 2)})
 
 
 @app.route('/api/predict', methods=['POST'])

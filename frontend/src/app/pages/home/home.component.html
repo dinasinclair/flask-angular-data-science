@@ -276,14 +276,14 @@
             fxLayout="column"
             class="home__chart-container"
         >
-            <h4>Chance of Being Paid</h4>
+            <!-- <h4>Chance of Being Paid</h4> -->
             <ngx-charts-linear-gauge
                 [view]="[400, 400]"
                 [scheme]="colorScheme"
                 [value]="probabilityPredictions"
                 [min]="0"
                 [max]="1"
-                [units]="''"
+                [units]="'Chance of Being Fully Paid'"
                 (select)="onSelect($event)"
             >
             </ngx-charts-linear-gauge>

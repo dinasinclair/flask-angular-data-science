@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { IrisService } from "./iris.service";
+// import { IrisService } from "./iris.service";
 import { LoanService } from "./loan.service";
 import {
-    Iris,
+    // Iris,
     Loan,
     ProbabilityPrediction,
     SVCParameters,
@@ -17,7 +17,7 @@ import {
 export class HomeComponent implements OnInit {
     public svcParameters: SVCParameters = new SVCParameters();
     public svcResult: SVCResult;
-    public iris: Iris = new Iris();
+    // public iris: Iris = new Iris();
     public loan: Loan = new Loan();
     public probabilityPredictions: ProbabilityPrediction[];
 
@@ -27,25 +27,25 @@ export class HomeComponent implements OnInit {
     };
 
     constructor(
-        private irisService: IrisService,
+        // private irisService: IrisService,
         private loanService: LoanService,
     ) {}
 
     ngOnInit() {}
 
-    public trainModel() {
-        this.irisService.trainModel(this.svcParameters).subscribe(svcResult => {
-            this.svcResult = svcResult;
-        });
-    }
+    // public trainModel() {
+    //     this.irisService.trainModel(this.svcParameters).subscribe(svcResult => {
+    //         this.svcResult = svcResult;
+    //     });
+    // }
 
-    public predictIris() {
-        this.irisService
-            .predictIris(this.iris)
-            .subscribe(probabilityPredictions => {
-                this.probabilityPredictions = probabilityPredictions;
-            });
-    }
+    // public predictIris() {
+    //     this.irisService
+    //         .predictIris(this.iris)
+    //         .subscribe(probabilityPredictions => {
+    //             this.probabilityPredictions = probabilityPredictions;
+    //         });
+    // }
 
     public predictLoan() {
         this.loanService
